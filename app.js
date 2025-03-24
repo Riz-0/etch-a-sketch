@@ -1,7 +1,6 @@
 function createGrid(size) {
   // Create a grid that is size^2
   const container = document.querySelector(".container");
-  const grid = document.createElement("div");
   const width = 600 / size;
   for (let row = 0; row < size; row++) {
     for (let col = 0; col < size; col++) {
@@ -11,8 +10,6 @@ function createGrid(size) {
       grid.appendChild(cell);
     }
   }
-  grid.id = "grid";
-  container.appendChild(grid);
 }
 
 function color(cell) {
@@ -22,9 +19,8 @@ function color(cell) {
 
 function clearGrid() {
   // Removes the grid
-  const container = document.querySelector(".container");
-  const grid = container.querySelector("#grid");
-  container.removeChild(grid);
+  const grid = document.querySelector("#grid");
+  grid.innerHTML = "";
 }
 
 function redrawGrid(size) {
