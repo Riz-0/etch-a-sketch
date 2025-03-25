@@ -40,6 +40,10 @@ h2 {
   text-align: center;
 }
 
+h3 {
+  text-decoration: underline;
+}
+
 .side-panel {
   display: flex;
   flex-direction: column;
@@ -52,13 +56,50 @@ h2 {
 }
 
 #clear-btn {
-  align-self: stretch;
+  width: 100%;
+  padding: 5px 0;
+  border-radius: 5px;
+  font-family: inherit;
+  font-weight: 700;
+  font-size: 18px;
+  color: #525252;
+  outline: none;
 }
 
 #color-picker {
   width: 100%;
+  border-radius: 5px;
 }
 
 #slider {
   width: 100%;
+}
+
+.shortcuts {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  list-style-type: none;
+  font-weight: 700;
+}
+
+.shortcuts li::before {
+  content: "";
+  background-color: #f2f2f2;
+  color: #525252;
+  border-radius: 5px;
+  padding: 5px 10px;
+  margin-right: 5px;
+}
+
+.shortcuts .brush::before {
+  content: "B";
+}
+
+.shortcuts .eraser::before {
+  content: "E";
+}
+
+.shortcuts .clear::before {
+  content: "C";
 }
