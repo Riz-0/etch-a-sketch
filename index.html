@@ -6,10 +6,20 @@
     <title>Etch-A-Sketch</title>
     <link rel="stylesheet" href="css/style.css" />
     <script src="app.js" defer></script>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap"
+      rel="stylesheet"
+    />
   </head>
   <body>
+    <h1>Etch-a-Sketch</h1>
+    <h2>By Riz</h2>
     <div class="container">
-      <div id="controls">
+      <div class="side-panel" id="controls">
+        <h3>Controls</h3>
         <div class="checkbox">
           <span>Brush Mode</span> <input type="checkbox" checked />
         </div>
@@ -25,9 +35,21 @@
         <div class="checkbox">
           <span>Show Grid</span> <input type="checkbox" checked />
         </div>
+        <p>16x16</p>
         <input type="range" min="16" max="100" value="16" id="slider" />
+        <p>Colour</p>
+        <input type="color" id="color-picker" />
+        <button id="clear-btn">CLEAR</button>
       </div>
       <div id="grid"></div>
+      <div class="side-panel">
+        <h3>Shortcuts</h3>
+        <ul>
+          <li class="brush">Brush</li>
+          <li class="eraser">Eraser</li>
+          <li class="clear">Clear</li>
+        </ul>
+      </div>
     </div>
   </body>
 </html>
