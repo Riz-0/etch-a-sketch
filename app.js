@@ -30,8 +30,14 @@ function redrawGrid(size) {
 
 function init() {
   // Initialise the website
+  // Initialise Slider
   const slider = document.querySelector("#slider");
   slider.addEventListener("change", (e) => redrawGrid(e.target.value));
+  // Show new grid size
+  const gridSize = document.querySelector("#grid-size");
+  slider.oninput = (e) =>
+    (gridSize.textContent = `${e.target.value}x${e.target.value}`);
+  // Initialise clear button
   const clearBtn = document.querySelector("#clear-btn");
   clearBtn.addEventListener("click", () => redrawGrid(slider.value));
   createGrid(16);
