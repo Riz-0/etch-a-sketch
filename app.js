@@ -5,7 +5,8 @@ function createGrid(size) {
   for (let row = 0; row < size; row++) {
     for (let col = 0; col < size; col++) {
       const cell = document.createElement("div");
-      cell.style.cssText = `width: ${width}px; height: ${width}px; border: 1px solid grey`;
+      cell.style.cssText = `width: ${width}px; height: ${width}px; background-color: #ffffff`;
+      cell.classList.add("cell");
       cell.addEventListener("mouseover", (e) => color(e.target));
       grid.appendChild(cell);
     }
@@ -18,8 +19,13 @@ function color(cell) {
   const tintToggle = document.querySelector("#tint");
   const rainbowToggle = document.querySelector("#rainbow");
   if (brushToggle.checked) cell.style.backgroundColor = "#525252";
-  if (eraserToggle.checked) cell.style.backgroundColor = "#f2f2f2";
   if (rainbowToggle.checked) cell.style.backgroundColor = getRandomColor();
+  if (tintToggle.checked && cell.style.opacity < 1)
+    cell.style.opacity = Number(cell.style.opacity) + 0.1;
+  if (eraserToggle.checked) {
+    cell.style.backgroundColor = "#fff";
+    cell.style.opacity = 1;
+  }
 }
 
 function getRandomColor() {
