@@ -41,6 +41,13 @@ function init() {
   const clearBtn = document.querySelector("#clear-btn");
   clearBtn.addEventListener("click", () => redrawGrid(slider.value));
   createGrid(16);
+  // Initialise toggles
+  const brushToggle = document.querySelector("#brush");
+  const eraserToggle = document.querySelector("#eraser");
+  brushToggle.oninput = () =>
+    (eraserToggle.checked = brushToggle.checked === false ? true : false);
+  eraserToggle.oninput = () =>
+    (brushToggle.checked = eraserToggle.checked === false ? true : false);
 }
 
 init();
