@@ -13,8 +13,22 @@ function createGrid(size) {
 }
 
 function color(cell) {
-  // Changes the color of a single cell
-  cell.style.backgroundColor = "#595959";
+  const brushToggle = document.querySelector("#brush");
+  const eraserToggle = document.querySelector("#eraser");
+  const tintToggle = document.querySelector("#tint");
+  const rainbowToggle = document.querySelector("#rainbow");
+  if (brushToggle.checked) cell.style.backgroundColor = "#525252";
+  if (eraserToggle.checked) cell.style.backgroundColor = "#f2f2f2";
+  if (rainbowToggle.checked) cell.style.backgroundColor = getRandomColor();
+}
+
+function getRandomColor() {
+  const letters = "0123456789ABCDEF";
+  let color = "#";
+  for (let i = 0; i < 6; i++) {
+    color += letters[Math.floor(Math.random() * 16)];
+  }
+  return color;
 }
 
 function clearGrid() {
