@@ -6,7 +6,6 @@ function createGrid(size) {
     for (let col = 0; col < size; col++) {
       const cell = document.createElement("div");
       cell.style.cssText = `width: ${width}px; height: ${width}px; background-color: #ffffff`;
-      cell.classList.add("cell");
       cell.addEventListener("mouseover", (e) => color(e.target));
       grid.appendChild(cell);
     }
@@ -68,6 +67,17 @@ function init() {
     (eraserToggle.checked = brushToggle.checked === false ? true : false);
   eraserToggle.oninput = () =>
     (brushToggle.checked = eraserToggle.checked === false ? true : false);
+  document.onkeydown = (e) => {
+    if (e.key.toLowerCase() == "b") {
+      brushToggle.checked = true;
+      eraserToggle.checked = false;
+    }
+    if (e.key.toLowerCase() == "e") {
+      brushToggle.checked = false;
+      eraserToggle.checked = true;
+    }
+    if (e.key.toLowerCase() == "c") redrawGrid(slider.value);
+  };
 }
 
 init();
